@@ -25,7 +25,7 @@
 					console.log('itemUrl: ', itemUrl);
 					console.log('price', price);
 					console.log('deal', deal);
-					console.log('itemUrl', itemUrl);
+					console.log('imgUrl', imgUrl);
 					console.log('shopName', shopName);
 					console.log('location', location);
 				});
