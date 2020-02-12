@@ -13,7 +13,7 @@
 
 				var itemCells = itemsDiv.children;
 				$.each(itemCells, (i, itemCell) => {
-					var imgUrl = itemCell.getElementsByTagName('img')[0].getAttribute('src');
+					var imgUrl = itemCell.getElementsByTagName('img')[0].getAttribute('data-src');
 					var price = itemCell.querySelector('.ctx-box div:nth-child(1) strong').innerText;
 					var deal = itemCell.querySelector('.ctx-box div:nth-child(1) .deal-cnt').innerText.split('人')[0];
 					var itemUrl = itemCell.querySelector('.ctx-box .title a').getAttribute('href');
@@ -29,7 +29,10 @@
 					console.log('shopName', shopName);
 					console.log('location', location);
 				});
+				var lastpage = document.querySelector('#mainsrp-pager .next a ');
+				lastpage.click();
 			}
 		}, 5000);
+		
 	};
 });
