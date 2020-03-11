@@ -4,13 +4,35 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
 {
 	console.log('收到来自content-script的消息：');
 	console.log(request, sender);
-	if (request.cmd && request.cmd == 'mtop') {
+	/*if (request.cmd && request.cmd == 'mtop') {
 		console.log('消息是mtop类型，消息体是：', request.msg);
 		if (request.msg && request.msg.type && MockHelper[request.msg.type]) {
 			MockHelper[request.msg.type](request.msg.data);
 		}
-	}
+	}*/
+	$.ajax({
+      type: "POST",
+      url: "http://localhost:8080/addItems",
+      data: JSON.stringify(request.item),
+      //dataType : "json",
+	  contentType: "application/json",
+      success: function (d) {
+        console.log("23", d);
+      }
+    });
+	//$.post('',request.item,function(){
+		//console.log('=================================');
+		//console.log(KeyRepoMap.ANDROID["portal"]);
+		//alert('跨域调用成功！');
+	//}, "json");
 });
+
+
+	/*$.post('http://localhost:8080/addItems',item,function(){
+		console.log('=================================');
+		//console.log(KeyRepoMap.ANDROID["portal"]);
+		//alert('跨域调用成功！');
+	});*/
 
 $('#test_cors').click((e) => {
 	$.get('https://www.baidu.com', function(html){
